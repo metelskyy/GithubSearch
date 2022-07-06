@@ -1,0 +1,18 @@
+.item {
+  width: 100%;
+  background-color: #fff;
+  padding: 24px 32px;
+  margin-bottom: 24px;
+}
+.link {
+  margin-bottom: 16px;
+  display: block;
+  text-decoration: none;
+  color: #0064eb;
+  font-weight: 500;
+  font-size: 24px;
+}
+.title {
+  font-size: 16px;
+  font-weight: 400;
+}

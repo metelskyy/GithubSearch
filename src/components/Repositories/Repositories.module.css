@@ -1,0 +1,10 @@
+.repositories {
+  width: 69.5%;
+  margin-left: 20px;
+  overflow: hidden;
+}
+.header {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 29px;
+}

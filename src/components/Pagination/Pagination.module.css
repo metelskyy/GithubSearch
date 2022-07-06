@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+}
+li:global {
+  list-style: none;
+  margin-right: 5px;
+}
+/* li:global:hover {
+  background-color: #0064eb; 
+  color: #fff;
+  transition: all 0.5s;
+} */
+
+:global(.previous) {
+}
+.root a {
+  display: block;
+  padding: 5px;
+  color: #808080;
+  cursor: pointer;
+}
+:global(.selected) a {
+  background-color: #0064eb;
+  border-radius: 3px;
+  color: #fff;
+}
