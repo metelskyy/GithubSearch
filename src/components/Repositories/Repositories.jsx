@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import Repository from "../Repository/Repository";
+import Repository from "../Repositories/Repository/Repository";
 import styles from "./Repositories.module.css";
 import { Context } from "../../context";
-import Pagination from "../Pagination/Pagination";
-import EmptyRepoList from "../EmptyRepoList/EmptyRepoList";
+import Pagination from "./Pagination/Pagination";
+import EmptyRepoList from "../Repositories/EmptyRepoList/EmptyRepoList";
 
 const Repositories = () => {
   const { repoList, totalCount } = useContext(Context);

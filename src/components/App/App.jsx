@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Start from "../../pages/Start/Start";
 import Header from "./Header/Header";
 import Profile from "../Profile/Profile";
-import NotFound from "../../pages/NotFound/NotFound";
-import Loader from "../Loader/Loader";
+import Loader from "./Loader/Loader";
 import { Context } from "../../context";
-import { getUserRepos, getTotalItems, getUser } from "../../API/getData";
+import {
+  fetchUserRepos,
+  fetchTotalItems,
+  fetchUser,
+} from "../../API/fetchUserProfile";
 
 const App = () => {
   console.log("RENDER");
@@ -16,13 +19,19 @@ const App = () => {
   const [repoList, setRepoList] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
 
-  const setUserRepos = async (userName) => {
+  const setUserProfile = async (userName) => {
     setIsLoading(true);
     setUserName(userName);
-    setRepoList(await getUserRepos(userName));
-    setTotalCount(await getTotalItems(userName));
-    setUser(await getUser(userName));
+    setRepoList(await fetchUserRepos(userName));
+    setTotalCount(await fetchTotalItems(userName));
+    setUser(await fetchUser(userName));
     setIsLoading(false);
+  };
+
+  const renderComponents = () => {
+    if (isLoading) return <Loader />;
+    else if (userName === "") return <Start />;
+    return <Profile user={user} />;
   };
 
   return (
@@ -30,16 +39,8 @@ const App = () => {
       value={{ user, repoList, totalCount, userName, setRepoList }}
     >
       <div className="app">
-        <Header setUserRepos={(userName) => setUserRepos(userName)} />
-        {userName === "" ? (
-          <Start />
-        ) : isLoading ? (
-          <Loader />
-        ) : user ? (
-          <Profile />
-        ) : (
-          <NotFound />
-        )}
+        <Header setUserProfile={(userName) => setUserProfile(userName)} />
+        {renderComponents()}
       </div>
     </Context.Provider>
   );

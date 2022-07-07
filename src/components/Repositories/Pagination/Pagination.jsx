@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styles from "./Pagination.module.css";
 import ReactPaginate from "react-paginate";
-import { Context } from "../../context";
-import { fetchRepoPage } from "../../API/getData";
+import { Context } from "../../../context";
+import { fetchRepoPage } from "../../../API/fetchUserProfile";
 
 const Pagination = () => {
   const { totalCount, userName, setRepoList } = useContext(Context);

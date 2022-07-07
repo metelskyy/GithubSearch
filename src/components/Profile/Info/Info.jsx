@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import shared from "../../assets/icons/shared.svg";
-import provate from "../../assets/icons/provate.svg";
+import shared from "../../../assets/icons/shared.svg";
+import provate from "../../../assets/icons/provate.svg";
 import styles from "./Info.module.css";
-import { Context } from "../../context";
+import { Context } from "../../../context";
 
 const Info = () => {
   const { user } = useContext(Context);

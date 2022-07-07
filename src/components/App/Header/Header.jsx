@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import loop from "../../../assets/icons/search.svg";
-const Header = ({ setUserRepos }) => {
+const Header = ({ setUserProfile }) => {
   const [userName, setUserName] = useState("");
 
   const handleOnClick = () => {
-    setUserRepos(userName);
+    setUserProfile(userName);
   };
 
   const handleOnKeyPress = (e) => {
     if (e.key === "Enter") {
-      setUserRepos(userName);
+      setUserProfile(userName);
     }
   };
 
